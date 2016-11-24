@@ -1,0 +1,86 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin transition($transition: all 0.2s ease-in-out) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+
+@mixin radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-sizing($box-sizing: border-box) {
+  -webkit-box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  border-box-sizing: $box-sizing;
+}
+
+@mixin btn-style {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  min-height: $input-height;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  font: $input-font-size/ 1 $font-serif;
+  font-weight: $font-bold;
+  text-transform: uppercase;
+  color: $dark-grey;
+  background-color: $grey;
+  border: 1px solid transparent;
+  @include radius(4px);
+  @include transition;
+
+  @include on-event {
+    outline: none;    
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  &:hover:not([disabled]) {
+    background-color: darken($grey, 15%);
+  }
+}
+
+@mixin input-style {
+  min-height: $input-height;
+  padding: 4px 10px;
+  font: $input-font-size/ 1 $font-serif;
+  font-weight: $font-bold;
+  border: 1px solid $grey;
+  @include transition;
+
+  @include on-event {
+    border-color: $mid-grey;    
+  }
+}
+
+@mixin on-event($self: false) {
+  @if $self {
+    &, &:hover, &:active, &:focus {
+      @content;
+    }
+  } @else {
+    &:hover, &:active, &:focus {
+      @content;
+    }
+  }
+}
+
+@mixin text-size-adjust($text-size-adjust: 100%) {
+  -webkit-text-size-adjust: $text-size-adjust;
+  -ms-text-size-adjust: $text-size-adjust;
+}

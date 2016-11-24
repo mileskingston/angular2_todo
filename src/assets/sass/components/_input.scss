@@ -1,0 +1,7 @@
+input, textarea {	
+	@include input-style;
+
+	@include on-event(false) {
+		outline: none;
+  	}
+}

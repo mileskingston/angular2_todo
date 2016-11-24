@@ -1,0 +1,77 @@
+*, :after, :before {
+  @include box-sizing;
+}
+
+html {
+  font-size: $font-size-base;
+  @include text-size-adjust;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+  font: $font-size-lg/ $line-height-base $font-serif;
+  color: $text-color;
+  background-color: $light-grey;
+}
+
+pre {
+  font-family: $font-code;
+  color: white;
+  background-color: $mid-grey;
+}
+
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  @include on-event {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3 {
+  font-weight: $font-normal;
+}
+
+header {
+  margin-bottom: 20px;
+  background-color: $brand-color;
+
+  .title {
+    text-transform: uppercase;
+    font-size: $font-size-lg;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+  }
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.msg {
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: $font-size-base;
+  text-align: center;
+
+  &.msg-success {
+    color: #3c763d;
+    background-color: #d6e9c6;
+  }
+  &.msg-warn {
+    color: #8a6d3b;
+    background-color: #faebcc;
+  }
+  &.msg-error {
+    color: #a94442;
+    background-color: #ebccd1;
+  }
+}

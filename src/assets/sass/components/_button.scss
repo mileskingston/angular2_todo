@@ -1,0 +1,12 @@
+.btn {
+	@include btn-style;
+}
+
+.btn-first {
+	background-color: $brand-color;
+	color: white;
+
+	&:hover:not([disabled]) {
+    	background-color: darken($brand-color, 15%);
+  	}
+}

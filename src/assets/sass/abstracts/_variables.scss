@@ -1,0 +1,42 @@
+// Fonts
+$font-serif: 'Roboto', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$font-code: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+$font-light: 300!default;
+$font-normal: 400!default;
+$font-bold: 500!default;
+$font-bolder: 700!default;
+
+$font-size-base: 14px!default;
+$font-size-sm: ceil(($font-size-base * 1.125)) !default; // 16px
+$font-size-md: ceil(($font-size-base * 1.25)) !default;	// 18px
+$font-size-lg: ceil(($font-size-base * 1.8)) !default; // 26px
+
+$line-height-base: 1.5!default;
+
+// Colours
+$text-color: rgb(34, 34, 34) !default;
+$brand-color: #512da8 !default;
+
+$light-grey: rgb(237, 237, 237) !default;
+$grey: #ccc !default;
+$mid-grey: rgb(153, 153, 153) !default;
+$dark-grey: rgb(68, 68, 68) !default;
+
+// Container
+// $max-width: 1180px !default;
+$max-width: 980px !default;
+
+// Breakpoints
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;
+
+// $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+// Input and buttons
+$input-height: 30px !default;
+$input-font-size: $font-size-base!default;

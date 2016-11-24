@@ -1,0 +1,46 @@
+<div class="msg msg-warn" *ngIf="!todos.length">You have no items</div>
+
+<article>
+	<form class="addForm" [formGroup]="myGroup" novalidate>
+	<!-- <form class="addForm" [formGroup]="myGroup" (ngSubmit)="addItem()" novalidate> -->
+		<input type="text" required 
+			[(ngModel)]="newTodo"
+			formControlName="add">
+		<button class="btn btn-first float-right" type="submit"
+			(click)="addItem()" [disabled]="myGroup.invalid">Add</button>
+		
+		<div class="msg msg-error" 
+			*ngIf="myGroup.get('add').dirty && myGroup.invalid">
+			Item is required
+		</div>
+	</form>
+
+	<ul class="todolist list-unstyled" *ngIf="todos.length">
+		<li *ngFor="let todo of todos; let i = index" [formGroup]="editGroup" [class.active]="todo.editing">
+				<span class="id" [innerText]="todo.id"></span>
+				<span [class.hide]="todo.editing">{{todo.name}}</span>
+				<input type="text" 
+					#updatedTodo
+					formControlName="edit" 
+					[class.hide]="!todo.editing" 
+					[value]="todo.name"
+					(keyup.enter)="editItem(todo, updatedTodo.value)"
+					(keyup.escape)="!todo.editing">
+
+				<span class="delete svg-icon float-right" (click)="deleteItem(i)">
+					<img src="../../assets/img/bin-icon.svg"
+						alt="delete icon" title="delete icon" width="28">
+				</span>
+				<span class="edit svg-icon float-right" (click)="editMode(i)">
+					<img src="../../assets/img/edit-icon.svg" alt="edit icon" title="edit icon" width="28">
+				</span>
+				<button class="btn btn-first float-right" 
+					*ngIf="todo.editing" 
+					(click)="editItem(todo, updatedTodo.value)">Save</button>
+		</li>
+	</ul>
+
+	<div class="actions" *ngIf="todos.length">
+		<button class="btn btn-second" (click)="deleteAll()">Delete all</button>
+	</div>
+</article>
